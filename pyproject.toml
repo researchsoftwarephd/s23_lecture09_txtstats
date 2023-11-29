@@ -20,3 +20,22 @@ txtstats = "txtstats.cli:_main"
 word_count = "txtstats.stats_functions:_word_count"
 line_count = "txtstats.stats_functions:_line_count"
 char_count = "txtstats.stats_functions:_char_count"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+src_paths = ["txtstats", "tests"]
+line_length = 88
+skip_gitignore = "True"
+
+[tool.flake8]
+max-line-length = 88
+max-doc-length = 88
+ignore = [
+    "E203",  # "whitespace before ':'"", but that's how black likes it
+    "W503" ] # "line break before binary operator", conflicts with black
+exclude = [ ".git", "__pycache__", ".*cache", "build", "dist", "env", "venv", ".eggs", "*.egg", "docs" ]
+docstring-convention = "google" # flake8-docstrings
