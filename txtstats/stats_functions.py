@@ -16,12 +16,18 @@ def text_stats(s: str) -> dict[str, Any]:
       A dictionary containing the generated text statistics.
     """
 
-    wc = len(s.split())
-    lc = len(s.split("\n"))
-    cc = len(s)
+    return {
+        _word_count.__name__[1:]: _word_count(s),
+        _line_count.__name__[1:]: _line_count(s),
+        _char_count.__name__[1:]: _char_count(s),
+    }
 
-    return {"word_count": wc, "line_count": lc, "char_count": cc}
 
+def _word_count(txt: str) -> int:
+    return len(txt.split())
 
-if __name__ == "__main__":
-    print(text_stats("Hello everyone!\nBye now!"))
+def _line_count(txt: str) -> int:
+    return len(txt.split("\n"))
+
+def _char_count(txt: str) -> int:
+    return len(txt)
