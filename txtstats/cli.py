@@ -2,15 +2,29 @@ import sys
 from inspect import getdoc
 from .api import text_stats
 from .stats_finder import _find_stats
+from tabulate import tabulate
 
 def _main():
     if len(sys.argv) > 1:
         filename = sys.argv[1]
         with open(filename, "r") as text_file:
             f_stats = text_stats(text_file.read())
-        for stat_name in f_stats:
-            print(f"{stat_name} : {f_stats[stat_name]}")
+        print(
+            tabulate(
+                f_stats.items(),
+                headers=["Statistic", "Value"],
+                tablefmt="rounded_outline",
+            )
+        )
     else:
         stats_found = _find_stats()
-        for stat_name in stats_found:
-            print(stat_name, " - ", getdoc(stats_found[stat_name]).split("\n")[0])
+        
+        stats_help = {n: getdoc(f).split("\n")[0] for n, f in stats_found.items()}
+
+        print(
+            tabulate(
+                stats_help.items(),
+                headers=["Statistic", "Description"],
+                tablefmt="rounded_outline",
+            )
+        )
