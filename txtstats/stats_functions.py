@@ -2,6 +2,7 @@
 Functions for calculating text statistics.
 """
 
+
 def _word_count(txt: str) -> int:
     """Determine the word count.
 
@@ -11,8 +12,9 @@ def _word_count(txt: str) -> int:
 
     Returns:
       The word count of the specified text.
-    """    
+    """
     return len(txt.split())
+
 
 def _line_count(txt: str) -> int:
     """Determine the line count.
@@ -23,8 +25,9 @@ def _line_count(txt: str) -> int:
 
     Returns:
       The line count of the specified text.
-    """    
+    """
     return len(txt.split("\n"))
+
 
 def _char_count(txt: str) -> int:
     """Determine the character count.
@@ -35,5 +38,5 @@ def _char_count(txt: str) -> int:
 
     Returns:
       The character count of the specified text.
-    """    
+    """
     return len(txt)

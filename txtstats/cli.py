@@ -1,8 +1,11 @@
 import sys
 from inspect import getdoc
+
+from tabulate import tabulate
+
 from .api import text_stats
 from .stats_finder import _find_stats
-from tabulate import tabulate
+
 
 def _main():
     if len(sys.argv) > 1:
@@ -18,7 +21,7 @@ def _main():
         )
     else:
         stats_found = _find_stats()
-        
+
         stats_help = {n: getdoc(f).split("\n")[0] for n, f in stats_found.items()}
 
         print(
