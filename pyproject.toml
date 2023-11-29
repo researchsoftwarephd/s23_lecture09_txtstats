@@ -12,3 +12,11 @@ keywords = ["text", "statistics"]
 license = {text = "MIT"}
 authors = [ { name = "Nuno Fachada", email = "nuno.fachada@ulusofona.pt" } ]
 dependencies = [  ]
+
+[project.scripts]
+txtstats = "txtstats.cli:_main"
+
+[project.entry-points."txtstats.stats"]
+word_count = "txtstats.stats_functions:_word_count"
+line_count = "txtstats.stats_functions:_line_count"
+char_count = "txtstats.stats_functions:_char_count"
