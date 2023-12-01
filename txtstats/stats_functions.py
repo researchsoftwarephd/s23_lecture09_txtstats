@@ -1,6 +1,4 @@
-"""
-Functions for calculating text statistics.
-"""
+"""Functions for generating text statistics."""
 
 
 def _word_count(txt: str) -> int:

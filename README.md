@@ -1,6 +1,6 @@
 # TXTStats
 
-Research software example for Lecture 06.
+Research software example for Lecture 07.
 
 ## License
 
