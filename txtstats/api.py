@@ -15,4 +15,7 @@ def text_stats(txt: str) -> dict[str, Any]:
     Returns:
       A dictionary containing the generated text statistics.
     """
+    if not isinstance(txt, str):
+        raise TypeError("`txt` parameter must be a string")
+
     return {name: stat_func(txt) for name, stat_func in _find_stats().items()}
