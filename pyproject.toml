@@ -25,6 +25,7 @@ devel = [
     "flake8-isort",
     "Flake8-pyproject",
     "isort",
+    "pdoc",
     "pre-commit",
     "pytest >= 7.0.0",
     "pytest-cov",
